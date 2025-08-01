@@ -16,7 +16,7 @@ export default function Hero({ isMobile, scrollToSection }) {
       id="hero"
       position="relative"
       height="100vh"
-      backgroundImage={`url(./public/profile.webp)`}
+      backgroundImage={`url(/portfolio-v2/profile.webp)`}
       backgroundSize="cover"
       backgroundPosition="center"
       backgroundAttachment={isMobile ? "scroll" : "fixed"}
