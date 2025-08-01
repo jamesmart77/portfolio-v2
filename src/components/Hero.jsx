@@ -8,7 +8,7 @@ import {
   Button,
   Link,
 } from "@chakra-ui/react";
-import { Mail, Code, Linkedin } from "lucide-react";
+import { Code, Linkedin } from "lucide-react";
 
 export default function Hero({ isMobile, scrollToSection }) {
   return (
@@ -16,10 +16,11 @@ export default function Hero({ isMobile, scrollToSection }) {
       id="hero"
       position="relative"
       height="100vh"
-      backgroundImage={`url(/portfolio-v2/profile.webp)`}
-      backgroundSize="cover"
-      backgroundPosition="center"
-      backgroundAttachment={isMobile ? "scroll" : "fixed"}
+      overflow="hidden"
+      // backgroundImage={`url(/portfolio-v2/profile.webp)`}
+      // backgroundSize="cover"
+      // backgroundPosition="center"
+      // backgroundAttachment="scroll"
     >
       <Box
         position="absolute"
@@ -27,7 +28,21 @@ export default function Hero({ isMobile, scrollToSection }) {
         left={0}
         right={0}
         bottom={0}
+        backgroundImage={`url(/portfolio-v2/profile.webp)`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundAttachment="scroll"
+        opacity={0.5} // Adjust this value as needed
+        zIndex={0}
+      />
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
         bg="linear-gradient(45deg, rgba(0,0,0,0.7), rgba(76,29,149,0.3), rgba(0,0,0,0.8))"
+        zIndex={1}
       />
       <Container maxW="7xl" height="100%" position="relative" zIndex={1}>
         <Flex
