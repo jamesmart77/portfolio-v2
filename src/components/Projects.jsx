@@ -111,7 +111,7 @@ export default function Projects() {
                   {project.github && (
                     <Button
                       as="a"
-                      aria-label="View Code"
+                      aria-label={`View ${project.title} Code`}
                       color="purple.400"
                       variant="outline"
                       size="sm"
@@ -123,7 +123,7 @@ export default function Projects() {
                   )}
                   <Button
                     as="a"
-                    aria-label="View Demo"
+                    aria-label={`View ${project.title} Demo`}
                     backgroundColor="purple.700"
                     variant="solid"
                     size="sm"
