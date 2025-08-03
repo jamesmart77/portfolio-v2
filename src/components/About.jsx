@@ -39,8 +39,8 @@ export default function About() {
   return (
     <Box id="about" py={20} bg="gray.800">
       <Container maxW="7xl">
-        <VStack gap={12}>
-          <Heading size="2xl" color="purple.400" textAlign="center">
+        <VStack gap={8}>
+          <Heading as="h2" size="2xl" color="purple.400" textAlign="center">
             About Me
           </Heading>
           <SimpleGrid columns={{ base: 1, lg: 2 }} gap={12} alignItems="center">
@@ -111,7 +111,7 @@ export default function About() {
                 {showMore ? "Read Less" : "Read More"}
                 {showMore ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
               </Button>
-              <HStack gap={4}>
+              <HStack gap={4} display={{ base: "flex" }} flexWrap="wrap">
                 <Tooltip content="Check out my GitHub" openDelay={250}>
                   <IconButton
                     asChild
@@ -150,7 +150,7 @@ export default function About() {
                   _hover={hoverStyles}
                 >
                   <Mail size={24} />
-                  Jamesmart77@gmail.com
+                  Email me
                 </Button>
                 <Button
                   as="a"

@@ -11,7 +11,6 @@ import {
   Badge,
   Heading,
   Image,
-  Separator,
   SimpleGrid,
   IconButton,
   useBreakpointValue,
@@ -23,52 +22,15 @@ import {
   Mail,
   FileText,
   ExternalLink,
-  Code,
-  Database,
-  Smartphone,
-  Globe,
-  Users,
-  Target,
-  MessageCircle,
-  Lightbulb,
 } from "lucide-react";
 import { Fade } from "react-awesome-reveal";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
+import Skills from "./components/Skills.jsx";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const isMobile = useBreakpointValue({ base: true, md: false });
-
-  const skillCategories = {
-    Frontend: [
-      "React",
-      "TypeScript",
-      "JavaScript",
-      "HTML/CSS",
-      "Vue.js",
-      "Angular",
-    ],
-    Backend: [
-      "Node.js",
-      "Python",
-      "Java",
-      "C#",
-      "Express",
-      "Django",
-      "Spring Boot",
-    ],
-    Database: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Firebase"],
-    DevOps: ["Docker", "AWS", "CI/CD", "Git", "Linux", "Kubernetes"],
-    Mobile: ["React Native", "Flutter", "iOS", "Android"],
-  };
-
-  const softSkills = [
-    { name: "Leadership", icon: Users, color: "red.400" },
-    { name: "Problem Solving", icon: Target, color: "purple.400" },
-    { name: "Communication", icon: MessageCircle, color: "yellow.400" },
-    { name: "Innovation", icon: Lightbulb, color: "red.400" },
-  ];
 
   const projects = [
     {
@@ -154,21 +116,6 @@ export default function Portfolio() {
     </Button>
   );
 
-  const SkillIcon = ({ category }) => {
-    switch (category) {
-      case "Frontend":
-        return Globe;
-      case "Backend":
-        return Code;
-      case "Database":
-        return Database;
-      case "Mobile":
-        return Smartphone;
-      default:
-        return Code;
-    }
-  };
-
   return (
     <Box bg="gray.900" color="white" minH="100vh">
       {/* Navigation */}
@@ -184,7 +131,7 @@ export default function Portfolio() {
       >
         <Container maxW="7xl" py={4} as="nav">
           <Flex justify="space-between" align="center">
-            <Text fontSize="xl" fontWeight="bold" color="purple.400">
+            <Text as="h1" fontSize="xl" fontWeight="bold" color="purple.400">
               James M.
             </Text>
             <HStack gap={4} display={{ base: "none", md: "flex" }}>
@@ -202,102 +149,7 @@ export default function Portfolio() {
 
         <About />
 
-        {/* Skills Section */}
-        <Box id="skills" py={20} bg="gray.900">
-          <Container maxW="7xl">
-            <VStack gap={12}>
-              <Heading size="2xl" color="purple.400" textAlign="center">
-                Skills & Expertise
-              </Heading>
-
-              {/* Technical Skills */}
-              <Box w="100%">
-                <Heading size="lg" color="red.400" mb={8} textAlign="center">
-                  Technical Skills
-                </Heading>
-                <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
-                  {Object.entries(skillCategories).map(([category, skills]) => {
-                    const IconComponent = SkillIcon({ category });
-                    return (
-                      <Card.Root
-                        key={category}
-                        bg="gray.800"
-                        border="1px"
-                        borderColor="gray.700"
-                      >
-                        <Card.Body gap={4}>
-                          <HStack>
-                            <IconComponent color="#9F7AEA" size={24} />
-                            <Heading size="md" color="white">
-                              {category}
-                            </Heading>
-                          </HStack>
-                          <Flex wrap="wrap" gap={2}>
-                            {skills.map((skill) => (
-                              <Badge
-                                key={skill}
-                                colorPalette="purple"
-                                variant="subtle"
-                                fontSize="sm"
-                                px={3}
-                                py={1}
-                              >
-                                {skill}
-                              </Badge>
-                            ))}
-                          </Flex>
-                        </Card.Body>
-                      </Card.Root>
-                    );
-                  })}
-                </SimpleGrid>
-              </Box>
-
-              <Separator borderColor="gray.700" />
-
-              {/* Soft Skills */}
-              <Box w="100%">
-                <Heading size="lg" color="yellow.400" mb={8} textAlign="center">
-                  Soft Skills
-                </Heading>
-                <SimpleGrid columns={{ base: 2, md: 4 }} gap={8}>
-                  {softSkills.map((skill) => {
-                    const IconComponent = skill.icon;
-                    return (
-                      <VStack key={skill.name} gap={4}>
-                        <Box
-                          p={4}
-                          borderRadius="full"
-                          bg="gray.800"
-                          border="2px"
-                          borderColor={skill.color}
-                        >
-                          <IconComponent
-                            size={32}
-                            color={
-                              skill.color === "red.400"
-                                ? "#F56565"
-                                : skill.color === "purple.400"
-                                ? "#9F7AEA"
-                                : "#ECC94B"
-                            }
-                          />
-                        </Box>
-                        <Text
-                          color="white"
-                          fontWeight="medium"
-                          textAlign="center"
-                        >
-                          {skill.name}
-                        </Text>
-                      </VStack>
-                    );
-                  })}
-                </SimpleGrid>
-              </Box>
-            </VStack>
-          </Container>
-        </Box>
+        <Skills />
 
         {/* Projects Section */}
         <Box id="projects" py={20} bg="gray.800">

@@ -17,10 +17,6 @@ export default function Hero({ isMobile, scrollToSection }) {
       position="relative"
       height="100vh"
       overflow="hidden"
-      // backgroundImage={`url(/portfolio-v2/profile.webp)`}
-      // backgroundSize="cover"
-      // backgroundPosition="center"
-      // backgroundAttachment="scroll"
     >
       <Box
         position="absolute"
