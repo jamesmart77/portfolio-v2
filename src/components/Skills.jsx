@@ -82,8 +82,8 @@ export default function TechnicalSkills() {
     { name: "Communication", icon: MessageCircle, color: "yellow.400" },
     { name: "Problem Solving", icon: Target, color: "purple.400" },
     { name: "Collaboration", icon: Users, color: "purple.400" },
-    { name: "Innovation", icon: Lightbulb, color: "red.400" },
     { name: "Mentoring", icon: HatGlasses, color: "yellow.400" },
+    { name: "Innovation", icon: Lightbulb, color: "red.400" },
   ];
 
   const skillIcons = {

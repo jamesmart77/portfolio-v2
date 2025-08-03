@@ -8,72 +8,21 @@ import {
   VStack,
   HStack,
   Link,
-  Badge,
   Heading,
-  Image,
   SimpleGrid,
-  IconButton,
   useBreakpointValue,
   Card,
 } from "@chakra-ui/react";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  FileText,
-  ExternalLink,
-} from "lucide-react";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { Fade } from "react-awesome-reveal";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Skills from "./components/Skills.jsx";
+import Projects from "./components/Projects.jsx";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const isMobile = useBreakpointValue({ base: true, md: false });
-
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description:
-        "Full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "AWS"],
-      github: "https://github.com/jamesmart77",
-      demo: "#",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
-    },
-    {
-      title: "Task Management App",
-      description:
-        "Collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      technologies: ["Vue.js", "Express", "MongoDB", "Socket.io", "Docker"],
-      github: "https://github.com/jamesmart77",
-      demo: "#",
-      image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
-    },
-    {
-      title: "Mobile Fitness Tracker",
-      description:
-        "Cross-platform mobile app for tracking workouts, nutrition, and progress with social features and gamification.",
-      technologies: ["React Native", "Firebase", "Redux", "Chart.js"],
-      github: "https://github.com/jamesmart77",
-      demo: "#",
-      image:
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
-    },
-    {
-      title: "AI Chat Assistant",
-      description:
-        "Intelligent chatbot with natural language processing capabilities, built with Python and deployed using microservices architecture.",
-      technologies: ["Python", "TensorFlow", "FastAPI", "Docker", "Redis"],
-      github: "https://github.com/jamesmart77",
-      demo: "#",
-      image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
-    },
-  ];
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
@@ -117,7 +66,7 @@ export default function Portfolio() {
   );
 
   return (
-    <Box bg="gray.900" color="white" minH="100vh">
+    <Box bg="gray.900" color="white" minH="100vh" as="header">
       {/* Navigation */}
       <Box
         position="fixed"
@@ -151,76 +100,7 @@ export default function Portfolio() {
 
         <Skills />
 
-        {/* Projects Section */}
-        <Box id="projects" py={20} bg="gray.800">
-          <Container maxW="7xl">
-            <VStack gap={12}>
-              <Heading size="2xl" color="purple.400" textAlign="center">
-                Featured Projects
-              </Heading>
-              <SimpleGrid columns={{ base: 1, lg: 2 }} gap={8}>
-                {projects.map((project, index) => (
-                  <Card.Root
-                    key={index}
-                    bg="gray.900"
-                    border="1px"
-                    borderColor="gray.700"
-                    overflow="hidden"
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      height="250px"
-                      objectFit="cover"
-                    />
-                    <Card.Body gap={4}>
-                      <Card.Title color="white">{project.title}</Card.Title>
-                      <Card.Description color="gray.300" lineHeight="tall">
-                        {project.description}
-                      </Card.Description>
-                      <Flex wrap="wrap" gap={2}>
-                        {project.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            colorPalette="red"
-                            variant="subtle"
-                            fontSize="xs"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </Flex>
-                    </Card.Body>
-                    <Card.Footer justify="flex-end" gap={4}>
-                      <IconButton
-                        asChild
-                        aria-label="View Code"
-                        colorPalette="purple"
-                        variant="outline"
-                        size="sm"
-                      >
-                        <Link href={project.github}>
-                          <Github size={20} />
-                        </Link>
-                      </IconButton>
-                      <IconButton
-                        asChild
-                        aria-label="Live Demo"
-                        colorPalette="red"
-                        variant="outline"
-                        size="sm"
-                      >
-                        <Link href={project.demo}>
-                          <ExternalLink size={20} />
-                        </Link>
-                      </IconButton>
-                    </Card.Footer>
-                  </Card.Root>
-                ))}
-              </SimpleGrid>
-            </VStack>
-          </Container>
-        </Box>
+        <Projects />
 
         {/* Contact Section */}
         <Box id="contact" py={20} bg="gray.900">
@@ -346,9 +226,9 @@ export default function Portfolio() {
 
         {/* Footer */}
         <Box bg="black" py={8}>
-          <Container maxW="7xl">
+          <Container maxW="7xl" as="footer">
             <Text textAlign="center" color="gray.500">
-              © 2025 James Martineau. Built with React & Chakra UI v3.
+              © 2025 James Martineau. Built with ❤️ on React & Chakra UI v3.
             </Text>
           </Container>
         </Box>
