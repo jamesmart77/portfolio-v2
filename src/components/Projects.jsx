@@ -34,7 +34,7 @@ export default function Projects() {
         "TypeScript",
       ],
       github: "https://github.com/jamesmart77/bible-nextjs",
-      demo: "https://justscripture.app",
+      demo: "https://www.justscripture.app",
       image: JustScriptureImg,
       paddingY: "0",
       buttonLabel: "View Application",
@@ -70,7 +70,7 @@ export default function Projects() {
           <Heading as="h2" size="2xl" color="purple.400" textAlign="center">
             Featured Projects
           </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2 }} gap={8}>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
             {projects.map((project, index) => (
               <Card.Root
                 key={index}
@@ -116,6 +116,7 @@ export default function Projects() {
                       variant="outline"
                       size="sm"
                       href={project.github}
+                      target="_blank"
                     >
                       <Github size={20} />
                       View Code
@@ -128,6 +129,7 @@ export default function Projects() {
                     variant="solid"
                     size="sm"
                     href={project.demo}
+                    target="_blank"
                   >
                     <ExternalLink size={20} />
                     {project.buttonLabel}
