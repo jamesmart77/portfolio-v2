@@ -3,7 +3,6 @@ import {
   Container,
   Text,
   VStack,
-  Link,
   Heading,
   SimpleGrid,
   Card,
